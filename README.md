@@ -10,6 +10,11 @@ The goal of this project is to provide a free, publically available app that all
 
 Scope: This project will not address all variables that influence graduation rates, only those that have metrics within the OCR data set. It will not address the quality of education in middle or elementary school. It will not address other ways to divide the data beyond large or small graduation classes, such as juvenile justice or alternative schools. It will only look at one school year of data across the entire US. It will not examine data at the state level. The Federal data masks graduation rates at schools with a graduation class less than 200 by reporting rates within a range for privacy reasons. Often states will report individual high school rates for all schools with a different cutoff. This project will not capture individual high school information at the state level. 
 
+Questions:
+
+How to design a model for small schools. Average number, categorical to next level, something else?
+How to make sure coefficients are understandable and can translate into a number for an educator?
+Which is the best web tool (Rshiny, Flask, Dash, etc.) for this? How to integrate it efficiently?  
 
 
 Project Organization
