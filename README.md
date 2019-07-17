@@ -4,6 +4,14 @@
 Flatiron School Final Project
 ==============================
 
+Goal: The US has a goal of reaching 90% of high school students graduating with a high school diploma within four years. However, in the 2016-17 school year, the rate was 85% which was the highest it has been since the 2010-11 school year. Clearly, there is still room for improvement. 
+
+The goal of this project is to provide a free, publically available app that allows a school administrator the ability to turn a dial or slider and see estimates of behavior changes that research shows improves graduation rates. Although research shows the powerful influence of family and community on educational success, the goal of this project is to only look at factors that a school principal or superintendent could change because they take place within school, such as attendance at school, class subjects, activities, etc. This project used data from the US Department of Education reported graduation rates for the 2016-17 school year and the most recent DoED Office for Civil Rights data set to examine factors that could influence graduation rates. 
+
+Scope: This project will not address all variables that influence graduation rates, only those that have metrics within the OCR data set. It will not address the quality of education in middle or elementary school. It will not address other ways to divide the data beyond large or small graduation classes, such as juvenile justice or alternative schools. It will only look at one school year of data across the entire US. It will not examine data at the state level. The Federal data masks graduation rates at schools with a graduation class less than 200 by reporting rates within a range for privacy reasons. Often states will report individual high school rates for all schools with a different cutoff. This project will not capture individual high school information at the state level. 
+
+
+
 Project Organization
 ------------
 The directory structure for this projects is below. Brief descriptions follow the diagram.
