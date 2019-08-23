@@ -1,7 +1,7 @@
 # Absenteeism_Project
 ==============================
 
-Flatiron School Final Project
+Flatiron School Final Project - power point summary  is included in this repo, "Importance of High School Graduation"
 ==============================
 
 Background: Every American should have a high school graduation diploma. The US wants to have 90% of high school students to achieve that academic goal within four years of high school education. Only 84.6% of high school students earned a diploma during the 2016-17 school year. Not having a high school diploma sets one up for a less successful life, earning less money, having higher medical bills, and spending more time in prison making the net cost to society, a negative $5,400 per high school drop-out. Obviously society and individuals have an incentive to earn a diploma.
