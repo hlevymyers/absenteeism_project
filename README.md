@@ -1,12 +1,13 @@
-# Absenteeism_Project
+Absenteeism_Project
 ==============================
-
-Flatiron School Final Project - power point summary  is included in this repo, "Importance of High School Graduation"
+"Importance of High School Graduation"
 ==============================
 
 Background: Every American should have a high school graduation diploma. The US wants to have 90% of high school students to achieve that academic goal within four years of high school education. Only 84.6% of high school students earned a diploma during the 2016-17 school year. Not having a high school diploma sets one up for a less successful life, earning less money, having higher medical bills, and spending more time in prison making the net cost to society, a negative $5,400 per high school drop-out. Obviously society and individuals have an incentive to earn a diploma.
 
 As the final project at the Flatiron School Data Science Boot Camp (Washington, DC), I wanted to look at high school graduation rates with the goal of building a tool that shows different actions a school administrator could implement to significantly improve graduation rates. I deliberately choose to only include metrics that a school administrator could change or influence through his or her actions and policies. Factors, such as neighborhood, parental education level, or family income, are known to significantly influence graduation rates, but were not were not included or considered at all. A school principal or superintendent cannot pick up and move the school across town to get a better graduation rate; the principal has the students in the building that are in the building. The goal was to develop a tool to address this reality. 
+
+A power point summary of the results are in the repo under "Importance of High School Graduation".
 
 This github repo includes jupyter notebooks for many steps along the way in developing a tool that could show school administrators steps that could be made that data shows leads to higher graduation rates. A short description of each jupyter notebook:
 
