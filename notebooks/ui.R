@@ -1,10 +1,15 @@
+#----------------------------------------------------------
+# This ui uses the Shiny Fluid Page for the layout and Google BubbleChart and Gauge for visualizations of
+# each high school.
+#---------------------------------------------------------
+
 library(shiny)
 library(reticulate)
 library(DT)
 library(googleVis)
 library(stringr)
 
-nums <- read.csv("/Users/flatironschool/Absenteeism_Project/notebooks/grad_num2.csv")
+nums <- read.csv("grad_num2.csv")
 
 nums <- subset(nums, Chronic_Absent_Rate <= 1)
 
@@ -18,7 +23,7 @@ xlim <- list(
   max = max(nums$Chronic_Absent_Rate, na.rm = TRUE) + 0.25
 )
 
-shinyUI(fluidPage(
+ui <- fluidPage(
   # Use the Google webfont "Source Sans Pro"
   # tags$link(
   #   href=paste0("http://fonts.googleapis.com/css?",
@@ -27,36 +32,60 @@ shinyUI(fluidPage(
   # tags$style(type="text/css",
   #            "body {font-family: 'Source Sans Pro'}"
   # ),
- 
-  fluidRow(
-    column(3,
-           selectInput('State', 'Which State?', choices = unique(nums['State']), multiple=FALSE),
-           uiOutput('District'),
-           #uiOutput('High_School'),
-           # actionButton("submit", label = "Submit"),
-           # br(),
-           # br(),
-           # DT::dataTableOutput('df_data_out')),
-    )
-    # column(9,
-    #        fluidRow(
-    #          column(width=2, 
-    #                 htmlOutput("absentGauge")
-    #          ),
-    #          column(width=10,
-    #                 uiOutput("absentText")
-    #          )
-    #        )
-    # )
-  ) 
-      
-      # #htmlOutput("absentGauge"),
+  titlePanel(HTML("<h1><center><font size=14> What affects school graduation rates? </font></center></h1>")),
   
-      # uiOutput("athleteText"),
-      # htmlOutput("athleteGauge"),
-      # uiOutput("suspendText"),
-      # htmlOutput("suspendGauge"),
-      # uiOutput("nonCertText"),
-      # htmlOutput("nonCertGauge"),
-      # htmlOutput("gradPlot")
-))
+  fluidRow(column(3,
+                  selectInput('State', 'Which State?', choices = unique(nums['State']), multiple=FALSE),
+                  uiOutput('District'),
+                  uiOutput('High_School'),
+                  actionButton("submit", label = "Submit"),
+                  br(),
+                  br(),
+                  DT::dataTableOutput('df_data_out')
+  ),
+  
+  column(9,
+         # Absenteeism
+         fluidRow(
+           column(width=3,
+                  htmlOutput("absentGauge")
+           ),
+           column(width=9,
+                  uiOutput("absentText")
+           )
+         ),
+         
+         # Athletics
+         fluidRow(
+           column(width=3,
+                  htmlOutput("athleteGauge")
+           ),
+           column(width=9,
+                  uiOutput("athleteText")
+           )
+         ),
+         
+         # Suspension Days
+         fluidRow(
+           column(width=3,
+                  htmlOutput("suspendGauge")
+           ),
+           column(width=9,
+                  uiOutput("suspendText")
+           )
+         ),
+         
+         # Non-certified teachers
+         fluidRow(
+           column(width=3,
+                  htmlOutput("nonCertGauge")
+           ),
+           column(width=9,
+                  uiOutput("nonCertText")
+           )
+         ),
+         
+         htmlOutput("gradPlot")
+  )
+  )
+)

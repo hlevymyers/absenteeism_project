@@ -1,7 +1,14 @@
+# -------------------------------------------------
+# The server.R builds out the dashboard for each high school and includes the state, district, name, enrollment,
+# graduation, chronic absenteeism, and sports participation rate, number of teachers that are non-certified, and
+# number of days missed to suspensions as reported to the US Department of Education. The dashboard also shows
+# if a school wanted to achieve a higher or better graduation rate what would those rates look like for a 
+# school with their enrollment. The gauges show a green improvement range and where the dial where the school
+# is currently. There is also a bubble chart showing each state and how all the schools in the state perform.
+# ------------------------------------------------
 library(shiny)
 library(reticulate)
 library(DT)
-#library(googleCharts)
 library(dplyr)
 library(googleVis)
 library(stringr)
@@ -9,7 +16,7 @@ library(reshape2)
 
 shinyServer(function(input, output, session) {
   
-  nums <- read.csv("/Users/flatironschool/Absenteeism_Project/notebooks/grad_num2.csv")
+  nums <- read.csv("grad_num2.csv")
   random_vals <- reactiveValues(df_data = NULL)
   
 
@@ -24,6 +31,7 @@ shinyServer(function(input, output, session) {
   })
   
   observeEvent(input$submit, {
+    
     random_vals$df_data <- DT::datatable(t(nums[(nums$State == input$State) & (nums$District == input$District_dynamic) & (nums$High_School == input$High_School_dynamic), 
                                                 c('State', 'District', 'High_School', 'Graduation_Rate_2015_16', 'Total_Enrollment', 'Number_of_Chronically_Absent_Students', 
                                                   'Number_of_Student_Athletes', 'Number_of_Days_Missed_to_Suspensions', 'Number_of_Non_Certified_Teachers', 'Level_Up_Graduation_Rate', 
@@ -34,7 +42,6 @@ shinyServer(function(input, output, session) {
   })
   
   global_val <- reactiveValues(countryFrame = NULL)
-  
   observeEvent(input$submit, {
     countyFrame <- nums %>% filter((nums$State == input$State)) %>% 
       select(State, District, grad_rate_bin, Chronic_Absent_Rate, Sports_Participant_Rate, Total_Enrollment, 
@@ -60,10 +67,6 @@ shinyServer(function(input, output, session) {
     countyFrame <- countyFrame %>% select(High_School, Chronic_Absent_Rate, Sports_Participant_Rate, grad_rate_bin, Total_Enrollment)
     countyFrame <- countyFrame %>% rename(Grad_Rate = grad_rate_bin)
     countyFrame$High_School <- as.factor(countyFrame$High_School)
-    # countyFrame$Grad_Rate <- as.character(countyFrame$Grad_Rate)
-    # countyFrame$Grad_Rate <- str_replace_all(countyFrame$Grad_Rate, "0-59%", " 0-59%")
-    # countyFrame$Grad_Rate <- str_replace_all(countyFrame$Grad_Rate, "60-79%", " 60-79%")
-    # countyFrame$Grad_Rate <- str_replace_all(countyFrame$Grad_Rate, "80-89%", " 80-89%")
     countyFrame$Grad_Rate <- str_replace_all(countyFrame$Grad_Rate, "100%", "~100%")
     countyFrame <- countyFrame[order(countyFrame$Grad_Rate), ]
     countyFrame$Grad_Rate <- factor(countyFrame$Grad_Rate, levels = c("0-59%", "60-79%", "80-89%", "90-99%", "~100%"))
@@ -126,12 +129,8 @@ shinyServer(function(input, output, session) {
                   height = 200, 
                   greenFrom = lower_green, 
                   greenTo = upper_green
-                  
                 )
-                
-                        
                 )
-
     })
   })
   
@@ -167,12 +166,8 @@ shinyServer(function(input, output, session) {
                   height = 200, 
                   greenFrom = lower_green, 
                   greenTo = upper_green
-                  
                 )
-                
-                
       )
-      
     })
   })
 
@@ -241,15 +236,10 @@ shinyServer(function(input, output, session) {
                   height = 200, 
                   greenFrom = lower_green, 
                   greenTo = upper_green
-                  
                 )
-                
-                
       )
       
     })
   })
   output$df_data_out <- renderDataTable(random_vals$df_data)
 })
-
-
