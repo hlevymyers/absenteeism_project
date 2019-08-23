@@ -1,0 +1,13 @@
+name: notebooks
+title: notebooks
+username:
+account: hlevymyers
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1094742
+bundleId: 2332111
+url: https://hlevymyers.shinyapps.io/notebooks/
+when: 1566158288.80213
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Absenteeism_load_and_merge_data.ipynb|Add_numbers_to_csv_for_shiny.ipynb|Add_numbers_to_csv_without_missing_values_for_shiny.ipynb|Big_and_Small_Schools_EDA.ipynb|binned_imputed.csv|Binning_Models.ipynb|Building_Features_Notebook.ipynb|Fewer_Bins_Model.ipynb|grad_num.csv|High_School_Shiny_App-Copy1.ipynb|High_School_Shiny_App.ipynb|Large_School_First_Models.ipynb|RFregressor_Large_Schools.ipynb|Simple_numbers.ipynb|.ipynb_checkpoints
